@@ -1,11 +1,14 @@
 ---
 const navItems = [
-    { name: "Inicio", href: "#home" },
-    { name: "Quiénes Somos", href: "#about" },
-    { name: "Experiencia", href: "#experience" },
-    { name: "Servicios", href: "#services" },
-    { name: "Contacto", href: "#contact" },
+    { name: "Inicio", href: "/" },
+    { name: "Quiénes Somos", href: "/about" },
+    { name: "Experiencia", href: "/experience" },
+    { name: "Servicios", href: "/services" },
+    { name: "Contacto", href: "/contact" },
 ];
+
+// Determine current page for active link highlighting
+const currentPage = Astro.url.pathname;
 ---
 
 <nav
@@ -14,7 +17,7 @@ const navItems = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
             <div class="flex-shrink-0 flex items-center">
-                <a href="#home" class="flex items-center gap-2 group">
+                <a href="/" class="flex items-center gap-2 group">
                     <span
                         class="material-icons text-primary text-4xl group-hover:text-accent transition-colors"
                         >layers</span
@@ -37,7 +40,11 @@ const navItems = [
                     navItems.map((item) => (
                         <a
                             href={item.href}
-                            class="nav-link text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-accent font-medium transition text-sm uppercase tracking-wide"
+                            class={`nav-link text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-accent font-medium transition text-sm uppercase tracking-wide ${
+                                currentPage === item.href 
+                                    ? 'text-primary dark:text-accent font-bold' 
+                                    : ''
+                            }`}
                         >
                             {item.name}
                         </a>
@@ -55,46 +62,3 @@ const navItems = [
         </div>
     </div>
 </nav>
-
-<script>
-    // Lógica para resaltar el enlace activo según el scroll
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.3, // Se activa cuando el 30% de la sección es visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                navLinks.forEach((link) => {
-                    link.classList.remove(
-                        "text-primary",
-                        "dark:text-accent",
-                        "font-bold",
-                    );
-                    link.classList.add("text-gray-700", "dark:text-gray-200");
-
-                    if (link.getAttribute("href") === `#${entry.target.id}`) {
-                        link.classList.add(
-                            "text-primary",
-                            "dark:text-accent",
-                            "font-bold",
-                        );
-                        link.classList.remove(
-                            "text-gray-700",
-                            "dark:text-gray-200",
-                        );
-                    }
-                });
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach((section) => {
-        observer.observe(section);
-    });
-</script>
