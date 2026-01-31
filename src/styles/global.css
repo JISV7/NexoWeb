@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@theme {
+    /* Definición de la paleta de colores extraída del HTML */
+    --color-primary: #005f7f;
+    --color-secondary: #003b55;
+    --color-accent: #20b2aa;
+
+    --color-background-light: #f0f4f8;
+    --color-background-dark: #00283c;
+
+    --color-surface-light: #ffffff;
+    --color-surface-dark: #004b66;
+
+    /* Fuentes */
+    --font-display: "Inter", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    /* Bordes personalizados */
+    --radius-folder: 2.5rem;
+}
+
+/* Utilidades personalizadas y capas base */
+@layer utilities {
+    .folder-shape {
+        clip-path: polygon(0% 15%, 5% 5%, 30% 5%, 35% 15%, 100% 15%, 100% 100%, 0% 100%);
+    }
+
+    .folder-shape-inverted {
+        clip-path: polygon(0% 15%, 65% 15%, 70% 5%, 95% 5%, 100% 15%, 100% 100%, 0% 100%);
+    }
+
+    .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply font-body text-slate-800 bg-background-light dark:bg-background-dark dark:text-gray-100 transition-colors duration-300;
+}

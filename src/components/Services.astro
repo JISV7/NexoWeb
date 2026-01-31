@@ -1,0 +1,129 @@
+---
+const workflow = [
+    {
+        step: "01",
+        title: "Recepción",
+        desc: "Recepción y análisis profundo de la cartera.",
+    },
+    {
+        step: "02",
+        title: "Estrategia",
+        desc: "Segmentación y definición de estrategia a medida.",
+    },
+    {
+        step: "03",
+        title: "Ejecución",
+        desc: "Gestión multicanal bajo estrictos estándares de calidad.",
+    },
+    {
+        step: "04",
+        title: "Control",
+        desc: "Seguimiento constante y reporting periódico.",
+    },
+];
+---
+
+<section
+    class="py-24 bg-background-light dark:bg-background-dark"
+    id="services"
+>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+            class="bg-secondary dark:bg-surface-dark rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row min-h-[500px] mb-20"
+        >
+            <div
+                class="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center text-white"
+            >
+                <h2 class="text-4xl lg:text-5xl font-bold mb-8 font-display">
+                    Servicios
+                </h2>
+                <p class="text-white/80 mb-8 font-light">
+                    Ejecución multicanal bajo estándares de calidad.
+                    Seguimiento, control y reporting periódico para asegurar el
+                    flujo de caja.
+                </p>
+                <div class="space-y-8">
+                    <div
+                        class="bg-white/10 p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition group"
+                    >
+                        <h3
+                            class="text-2xl font-bold mb-2 text-accent group-hover:text-white transition-colors"
+                        >
+                            Gestión de cobranzas extrajudicial
+                        </h3>
+                        <p class="font-light opacity-90">
+                            Estrategias efectivas para la recuperación de
+                            activos antes de instancias legales, preservando la
+                            relación comercial.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white/10 p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition group"
+                    >
+                        <h3
+                            class="text-2xl font-bold mb-2 text-accent group-hover:text-white transition-colors"
+                        >
+                            Servicing y administración de carteras
+                        </h3>
+                        <p class="font-light opacity-90">
+                            Administración integral de carteras financieras,
+                            asegurando el cumplimiento y optimizando el flujo de
+                            caja.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 relative bg-white dark:bg-gray-900">
+                <div class="absolute inset-0 p-6 lg:p-10">
+                    <div
+                        class="w-full h-full relative rounded-3xl overflow-hidden shadow-xl border-8 border-white dark:border-gray-800"
+                    >
+                        <img
+                            alt="Servicios profesionales"
+                            class="w-full h-full object-cover"
+                            src="/placeholder.webp"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative">
+            <div class="text-center mb-12">
+                <h3
+                    class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white"
+                >
+                    Cómo trabajamos
+                </h3>
+                <p
+                    class="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto"
+                >
+                    Un proceso cíclico y optimizado para maximizar resultados.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {
+                    workflow.map((item) => (
+                        <div class="bg-white dark:bg-surface-dark p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 relative overflow-hidden group hover:-translate-y-2 transition duration-300">
+                            <div class="absolute -right-4 -top-4 text-9xl font-bold text-gray-50 dark:text-white/5 z-0 select-none group-hover:scale-110 transition duration-500">
+                                {item.step}
+                            </div>
+                            <div class="relative z-10">
+                                <span class="text-primary dark:text-accent font-bold text-lg block mb-2">
+                                    Paso {item.step}
+                                </span>
+                                <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                                    {item.title}
+                                </h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
