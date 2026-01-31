@@ -1,4 +1,29 @@
-<section class="py-24 bg-surface-light dark:bg-secondary relative">
+---
+const advantages = [
+    {
+        title: "Experiencia en el sector",
+        desc: "Dirección con más de 10 años liderando equipos y estrategias.",
+        icon: "history_edu",
+    },
+    {
+        title: "Personal calificado",
+        desc: "Equipo de expertos altamente capacitados y eficientes.",
+        icon: "groups",
+    },
+    {
+        title: "Calidad y control",
+        desc: "Enfoque institucional en la calidad de gestión y control operativo.",
+        icon: "rule",
+    },
+    {
+        title: "Estrategias a medida",
+        desc: "Procesos dinámicos, ajustables y priorizando el resultado.",
+        icon: "tune",
+    },
+];
+---
+
+<section class="py-24 bg-surface-light dark:bg-secondary relative" id="about">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
             class="bg-primary dark:bg-surface-dark rounded-[3rem] p-10 lg:p-16 shadow-2xl relative overflow-hidden text-white mb-12"
@@ -20,17 +45,35 @@
                     operativo. Procesos claros, trazables y orientados a
                     resultados sostenibles.
                 </p>
+                <div class="mt-8 pt-8 border-t border-white/20">
+                    <p class="font-medium text-lg">
+                        Nexo Solutions actúa como nexo estratégico entre la
+                        gestión ordenada y la recuperación eficiente de activos.
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
             <div
-                class="bg-primary dark:bg-surface-dark rounded-[2.5rem] p-10 text-white shadow-xl hover:-translate-y-1 transition duration-300"
+                class="bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 rounded-[2.5rem] p-10 shadow-lg hover:-translate-y-1 transition duration-300"
             >
                 <div class="flex items-center gap-4 mb-6">
-                    <span class="material-icons text-5xl opacity-80">flag</span>
-                    <h3 class="text-3xl font-bold">Misión</h3>
+                    <div class="bg-primary/10 dark:bg-white/10 p-3 rounded-2xl">
+                        <span
+                            class="material-icons text-4xl text-primary dark:text-accent"
+                            >flag</span
+                        >
+                    </div>
+                    <h3
+                        class="text-3xl font-bold text-slate-800 dark:text-white"
+                    >
+                        Misión
+                    </h3>
                 </div>
-                <p class="text-lg font-light opacity-90 leading-relaxed">
+                <p
+                    class="text-lg font-light text-gray-600 dark:text-gray-300 leading-relaxed"
+                >
                     Brindar soluciones profesionales de gestión y recuperación
                     de carteras financieras, actuando como nexo entre las
                     instituciones y sus clientes, mediante procesos eficientes,
@@ -38,19 +81,53 @@
                 </p>
             </div>
             <div
-                class="bg-primary dark:bg-surface-dark rounded-[2.5rem] p-10 text-white shadow-xl hover:-translate-y-1 transition duration-300"
+                class="bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-700 rounded-[2.5rem] p-10 shadow-lg hover:-translate-y-1 transition duration-300"
             >
                 <div class="flex items-center gap-4 mb-6">
-                    <span class="material-icons text-5xl opacity-80"
-                        >visibility</span
+                    <div class="bg-primary/10 dark:bg-white/10 p-3 rounded-2xl">
+                        <span
+                            class="material-icons text-4xl text-primary dark:text-accent"
+                            >visibility</span
+                        >
+                    </div>
+                    <h3
+                        class="text-3xl font-bold text-slate-800 dark:text-white"
                     >
-                    <h3 class="text-3xl font-bold">Visión</h3>
+                        Visión
+                    </h3>
                 </div>
-                <p class="text-lg font-light opacity-90 leading-relaxed">
+                <p
+                    class="text-lg font-light text-gray-600 dark:text-gray-300 leading-relaxed"
+                >
                     Ser un estudio referente en gestión de cobranzas y servicing
                     financiero, reconocido por su profesionalismo, transparencia
                     operativa y calidad en la ejecución.
                 </p>
+            </div>
+        </div>
+
+        <div>
+            <h3
+                class="text-3xl font-bold text-slate-900 dark:text-white mb-8 text-center md:text-left"
+            >
+                Ventajas Competitivas
+            </h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {
+                    advantages.map((item) => (
+                        <div class="bg-background-light dark:bg-background-dark p-6 rounded-2xl border border-gray-200 dark:border-gray-700 hover:shadow-md transition">
+                            <span class="material-icons text-primary dark:text-accent text-3xl mb-4">
+                                {item.icon}
+                            </span>
+                            <h4 class="text-xl font-bold text-slate-800 dark:text-white mb-2">
+                                {item.title}
+                            </h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                {item.desc}
+                            </p>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </div>
